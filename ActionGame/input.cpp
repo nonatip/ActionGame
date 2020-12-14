@@ -231,11 +231,11 @@ bool GetKeyboardRelease(int key)
 //=============================================================================
 // キーボードキーが押されているかを取得
 //=============================================================================
-bool GetKeyboardAnyKey()
+bool GetKeyboardAnyKey(void)
 {
 	for (int i = 0; i < NUM_KEY_MAX; i++)
 	{
-		if ((g_keyStateRelease[i] & 0x80) != 0)
+		if ((g_keyState[i] & 0x80) != 0)
 		{
 			return true;
 		}
@@ -389,6 +389,23 @@ bool GetMouseCenterPress(void)
 bool GetMouseCenterTrigger(void)
 {
 	return ((g_mouseState.rgbButtons[2] & 0x80) != 0);
+}
+
+//=============================================================================
+// マウスがクリックされているか
+//=============================================================================
+bool GetMouseAnyBotton(void)
+{
+	if (GetMouseLeftPress())
+	{
+		return true;
+	}
+	if (GetMouseRightPress())
+	{
+		return true;
+	}
+
+	return false;
 }
 
 //=============================================================================

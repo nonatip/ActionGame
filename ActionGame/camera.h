@@ -27,15 +27,9 @@ private:
 	float			m_aspectRatio;			// アスペクト比
 	float			m_fov;					// 視野
 
-	float			m_look = 10.0f;			// 各モードの注視点調整用
-
-	XMFLOAT3		m_pos = { 0,0,0 };		// FPSカメラ位置調整用
-
-	float			m_distance = -10;		// TPSカメラの高さ調整用
-	float			m_height = 10;			// TPSカメラの距離調整用
-
-	float			m_sensitivity = 50;		// FREEカメラの感度調整用
-	XMFLOAT2		m_beforeMouse;			// FREEカメラ用直前のマウス座標
+	float			m_look = 10.0f;			// ターゲットからどれくらいの位置を注視するか
+	float			m_distance = -30;		// カメラの高さ
+	float			m_height = 10;			// カメラの距離
 
 	void CreateCameraMatrix() {
 		XMVECTOR vectorEye = XMVectorSet(m_eyePosition.x, m_eyePosition.y, m_eyePosition.z, 0.0f);
@@ -49,16 +43,11 @@ private:
 		XMStoreFloat4x4(&m_projectionMatrix, projection);
 	}
 
-	void UpdateDEFAULT();
-	void UpdateFPS();
-	void UpdateTPS();
-	void UpdateFREE();
+	void UpdateGameCamera();
 public:
 	enum CameraMode {
-		DEFAULT,
-		FPS,
-		TPS,
-		FREE,
+		GAME,
+		DEFAULT
 	};
 	CCamera(CScene* scene) { m_scene = scene; Init(); }
 	~CCamera() { Uninit(); }
@@ -90,4 +79,5 @@ public:
 		// プロジェクション行列を生成
 		CreateProjectionMatrix();
 	}
+	void SetMode(CCamera::CameraMode _newMode) { m_mode = _newMode; }
 };

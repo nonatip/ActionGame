@@ -279,7 +279,6 @@ HRESULT DirectX11Manager::Init(HINSTANCE hInstance, int cCmdShow)
 #pragma endregion
 
 	InitInput(hInstance, hWnd);
-	//input.Create(hWnd);
 
 #pragma region ImGui
 	IMGUI_CHECKVERSION();

@@ -13,13 +13,14 @@ void CGame::Initialize()
 {
 	//コンスタントバッファの作成
 	DirectX11Manager::CreateConstantBuffer(sizeof(ConstantBufferMatrix), &m_cb);
-	// カメラの作成
-	camera = new CCamera(this);
-	m_constantBuffer.proj = XMMatrixTranspose(XMLoadFloat4x4(&camera->GetProjectionMatrix()));
-	m_constantBuffer.view = XMMatrixTranspose(XMLoadFloat4x4(&camera->GetCameraMatrix()));
 	// オブジェクトの生成
 	CPlayer* player = new CPlayer(this);
 	objList.emplace_back(player);
+	// カメラの作成
+	camera = new CCamera(this);
+	camera->SetMode(CCamera::CameraMode::GAME);
+	m_constantBuffer.proj = XMMatrixTranspose(XMLoadFloat4x4(&camera->GetProjectionMatrix()));
+	m_constantBuffer.view = XMMatrixTranspose(XMLoadFloat4x4(&camera->GetCameraMatrix()));
 }
 
 CGame::~CGame()
@@ -52,7 +53,7 @@ void CGame::Update()
 	camera->Update();
 
 	// とりあえずの実装
-	if (isTransition)
+	if (GetKeyboardTrigger(DIK_RETURN))
 	{
 		//マネージャーのアドレスを引き継ぐ
 		manager->scene = new CTitle(manager);
@@ -72,10 +73,6 @@ void CGame::Draw()
 	// オブジェクト描画処理
 	for (auto &obj : objList)
 	{
-		if ((camera->GetMode() == CCamera::FPS) && (obj->GetType() == GameObject::Player))
-		{
-			// FPSカメラの時プレイヤーは描画しない
-		}
 		m_constantBuffer.world = XMMatrixTranspose(XMLoadFloat4x4(&obj->GetMtx()));
 		DirectX11Manager::UpdateConstantBuffer(m_cb.Get(), m_constantBuffer);
 		*tmpCb = { m_cb.Get() };
@@ -89,7 +86,7 @@ void CGame::Draw()
 	// ImGui
 	ImGui::Begin(u8"game");
 	ImGui::Text("FPS %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-	ImGui::Checkbox("transition", &isTransition);
+	ImGui::Text("TitleScene:PushEnter");
 	ImGui::End();
 
 	// 描画後

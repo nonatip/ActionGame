@@ -22,7 +22,6 @@ public:
 	CCamera* camera;
 	std::list<GameObject*> objList;
 private:
-	bool isTransition = false;
 	// コンスタントバッファ
 	ConstantBufferMatrix m_constantBuffer;
 	ConstantBuffer m_cb;

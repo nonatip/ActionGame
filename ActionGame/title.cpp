@@ -16,8 +16,13 @@ void CTitle::Update()
 {
 	UpdateInput();
 
+	if (!GetKeyboardAnyKey())
+	{
+		isChange = true;
+	}
+
 	// とりあえずの実装
-	if (isTransition)
+	if (isChange&&GetKeyboardAnyKey())
 	{
 		//マネージャーのアドレスを引き継ぐ
 		manager->scene = new CGame(manager);
@@ -36,7 +41,7 @@ void CTitle::Draw()
 	// ImGui
 	ImGui::Begin(u8"title");
 	ImGui::Text("FPS %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
-	ImGui::Checkbox("transition", &isTransition);
+	ImGui::Text("GameScene:PushAnyKey");
 	ImGui::End();
 
 	// 描画後

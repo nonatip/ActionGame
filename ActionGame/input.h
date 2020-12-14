@@ -23,7 +23,7 @@ bool GetKeyboardPress(int key);
 bool GetKeyboardTrigger(int key);
 bool GetKeyboardRepeat(int key);
 bool GetKeyboardRelease(int key);
-bool GetKeyboardAnyKey();
+bool GetKeyboardAnyKey(void);
 
 bool GetMouseLeftPress(void);
 bool GetMouseLeftTrigger(void);
@@ -31,6 +31,7 @@ bool GetMouseRightPress(void);
 bool GetMouseRightTrigger(void);
 bool GetMouseCenterPress(void);
 bool GetMouseCenterTrigger(void);
+bool GetMouseAnyBotton(void);
 long GetMouseAxisX(void);
 long GetMouseAxisY(void);
 long GetMouseAxisZ(void);

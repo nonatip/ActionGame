@@ -148,8 +148,6 @@
     <ClInclude Include="imstb_truetype.h" />
     <ClInclude Include="input.h" />
     <ClInclude Include="manager.h" />
-    <ClInclude Include="Memory.h" />
-    <ClInclude Include="MyInput8.h" />
     <ClInclude Include="SampleDef.h" />
     <ClInclude Include="title.h" />
     <ClInclude Include="UniExportModel.hpp" />
@@ -170,7 +168,6 @@
     <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="MyInput8.cpp" />
     <ClCompile Include="title.cpp" />
     <ClCompile Include="UnityExportModel.cpp" />
     <ClCompile Include="UnityExportSkinnedModel.cpp" />

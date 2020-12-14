@@ -8,7 +8,6 @@
 #include <d3dcompiler.h>
 #include <DirectXTex.h>
 #include <wrl/client.h>
-//#include "MyInput8.h"
 #include "input.h"
 #include "imgui.h"
 #include "imgui_impl_dx11.h"
@@ -69,9 +68,6 @@ public:
 
 	//サンプラー
 	static inline ComPtr<ID3D11SamplerState>		m_pSampler = nullptr; //通常テクスチャ(0-1サンプリング)
-
-	//Input
-	//static inline CInput input;
 
 	static HRESULT Init(HINSTANCE hInstance, int cCmdShow);
 	static void Cleanup();

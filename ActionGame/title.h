@@ -5,7 +5,7 @@
 // タイトル全体の管理
 class CTitle :public CScene
 {
-	bool isTransition = false;
+	bool isChange = false;
 	// コンスタントバッファ
 	ConstantBufferMatrix m_constantBuffer;
 	ConstantBuffer m_cb;
