@@ -6,6 +6,9 @@
 #include "GameObject.h"
 #include "CPlayer.h"
 
+#include "stage.h"
+#include "skydome.h"
+
 #include "camera.h"
 
 class CGame :public CScene

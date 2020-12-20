@@ -16,6 +16,10 @@ void CGame::Initialize()
 	// オブジェクトの生成
 	CPlayer* player = new CPlayer(this);
 	objList.emplace_back(player);
+	CSkydome* skydome = new CSkydome(this);
+	objList.emplace_back(skydome);
+	CStage* stage = new CStage(this);
+	objList.emplace_back(stage);
 	// カメラの作成
 	camera = new CCamera(this);
 	camera->SetMode(CCamera::CameraMode::GAME);
@@ -38,6 +42,8 @@ void CGame::Finalize()
 			delete(obj);
 		}
 	}
+
+	delete camera;
 }
 
 void CGame::Update()

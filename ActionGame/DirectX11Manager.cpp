@@ -10,6 +10,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 
 	switch (message)
 	{
+	case WM_CREATE:
+		//ShowCursor(FALSE);
+		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
@@ -141,7 +144,11 @@ HRESULT DirectX11Manager::Init(HINSTANCE hInstance, int cCmdShow)
 	sd.OutputWindow = hWnd;
 	sd.SampleDesc.Count = 1;
 	sd.SampleDesc.Quality = 0;
-	sd.Windowed = true;
+#if FULLSCREEN
+	sd.Windowed = false;			// フルスクリーンモード
+#else
+	sd.Windowed = true;				// ウインドウモード
+#endif
 	sd.Flags = DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH;
 
 	D3D_FEATURE_LEVEL featureLevels[] =

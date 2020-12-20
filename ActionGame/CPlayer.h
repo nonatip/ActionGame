@@ -36,7 +36,6 @@ class CPlayer :
 	bool	isAttack = false;
 
 	float			m_sensitivity = 50;		// 回転感度
-	XMFLOAT2		m_beforeMouse;			// 直前のマウス座標
 
 	void AnimUpdate();
 public:

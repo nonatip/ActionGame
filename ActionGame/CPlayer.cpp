@@ -12,8 +12,6 @@ CPlayer::CPlayer(CScene* scene)
 	{
 		animation[i].LoadBinary(animData[i], skinnedModel->uemData.m_root.get());
 	}
-	m_beforeMouse.x = GetMouseX();
-	m_beforeMouse.y = GetMouseY();
 }
 
 CPlayer::~CPlayer()
@@ -26,8 +24,7 @@ void CPlayer::Update()
 	if (!isJump && !isAttack)
 	{
 		// 向きの変更
-		m_angle.y += (GetMouseX() - m_beforeMouse.x) / m_sensitivity;
-		m_beforeMouse.x = GetMouseX();
+		m_angle.y += GetMouseAxisX() / m_sensitivity;
 		if (GetKeyboardPress(DIK_W))	// 前進キー入力
 		{
 			if (GetKeyboardPress(DIK_LSHIFT))
@@ -36,10 +33,10 @@ void CPlayer::Update()
 				{
 					anim = CPlayer::PlayerAnimation::Run;
 					animCnt = 0;
-					m_trans.x += m_dir.x * 2.0f;
-					m_trans.y += m_dir.y * 2.0f;
-					m_trans.z += m_dir.z * 2.0f;
 				}
+				m_trans.x += m_dir.x * 1.0f;
+				m_trans.y += m_dir.y * 1.0f;
+				m_trans.z += m_dir.z * 1.0f;
 			}
 			else
 			{
@@ -47,10 +44,10 @@ void CPlayer::Update()
 				{
 					anim = CPlayer::PlayerAnimation::Walk;
 					animCnt = 0;
-					m_trans.x += m_dir.x * 1.0f;
-					m_trans.y += m_dir.y * 1.0f;
-					m_trans.z += m_dir.z * 1.0f;
 				}
+				m_trans.x += m_dir.x * 0.5f;
+				m_trans.y += m_dir.y * 0.5f;
+				m_trans.z += m_dir.z * 0.5f;
 			}
 		}
 		if (GetMouseLeftPress())	// 左クリック：パンチ

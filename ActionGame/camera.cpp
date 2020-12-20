@@ -7,7 +7,7 @@ void CCamera::Init()
 	m_lookatPosition = { 0,0,0 };
 	m_upVector = { 0,1,0 };
 	SetCameraMatrix(m_eyePosition, m_lookatPosition, m_upVector);
-	SetProjectionMatrix(1.0f, 1000.0f, XM_PIDIV2 / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
+	SetProjectionMatrix(1.0f, 10000.0f, XM_PIDIV2 / 2, SCREEN_WIDTH, SCREEN_HEIGHT);
 }
 
 void CCamera::Uninit()

@@ -133,6 +133,7 @@
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="CPlayer.h" />
+    <ClInclude Include="skydome.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="DirectX11Manager.h" />
     <ClInclude Include="dx11mathutil.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="input.h" />
     <ClInclude Include="manager.h" />
     <ClInclude Include="SampleDef.h" />
+    <ClInclude Include="stage.h" />
     <ClInclude Include="title.h" />
     <ClInclude Include="UniExportModel.hpp" />
     <ClInclude Include="UnityExportModel.h" />
@@ -157,6 +159,7 @@
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="CPlayer.cpp" />
+    <ClCompile Include="skydome.cpp" />
     <ClCompile Include="DirectX11Manager.cpp" />
     <ClCompile Include="dx11mathutil.cpp" />
     <ClCompile Include="game.cpp" />
@@ -168,6 +171,7 @@
     <ClCompile Include="imgui_widgets.cpp" />
     <ClCompile Include="input.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="stage.cpp" />
     <ClCompile Include="title.cpp" />
     <ClCompile Include="UnityExportModel.cpp" />
     <ClCompile Include="UnityExportSkinnedModel.cpp" />
