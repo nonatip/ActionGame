@@ -19,10 +19,10 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 		return -1;
 
 	//管理システムを動的確保
-	CManager *p_manager;
-	p_manager = new CManager();
+	CManager *manager;
+	manager = new CManager();
 	//タイトルを動的確保
-	p_manager->scene = new CTitle(p_manager);
+	manager->scene = new CTitle(manager);
 
 	MSG msg = { 0 };
 	while (true)
@@ -56,14 +56,15 @@ int WINAPI WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance, _
 			dwExecLastTime = dwCurrentTime;
 
 			// マネージャーからシーンの更新、描画を呼び出す
-			p_manager->Update();
-			p_manager->Draw();
+			manager->Update();
+			manager->Draw();
 
 			// フレーム数カウントアップ
 			dwFrameCount++;
 		}
 	}
 
+	delete manager;
 	DirectX11Manager::Cleanup();
 	return 0;
 }

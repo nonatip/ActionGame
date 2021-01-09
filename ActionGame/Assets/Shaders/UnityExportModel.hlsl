@@ -55,3 +55,10 @@ float4 psMain(PS_INPUT input) : SV_TARGET
    
 	return result;
 }
+
+float4 psSky(PS_INPUT input) : SV_TARGET
+{
+	float4 texcol = Diffuse.Sample(samLinear, input.Tex);
+	float4 col = texcol;
+	return col;
+}

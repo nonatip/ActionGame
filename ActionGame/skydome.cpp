@@ -6,7 +6,7 @@ CSkydome::CSkydome(CScene * scene)
 	m_type = GameObject::Other;
 
 	DX11MtxIdentity(m_world);
-	model = new UnityExportModel();
+	model = new UnityExportModel(UnityExportModel::ObjectType::Sky);
 	model->LoadBinary("Assets/Models/Skydome.umb");
 }
 

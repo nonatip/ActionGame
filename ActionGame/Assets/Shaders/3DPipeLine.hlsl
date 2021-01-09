@@ -34,10 +34,3 @@ PS_INPUT vsMain(VS_INPUT pos)
 	o.Tex = pos.Tex;
 	return o;
 }
-
-float4 psMain(PS_INPUT input) : SV_TARGET
-{
-	float4 result = 0;
-	result = Diffuse.Sample(samLinear, input.Tex) * input.Col;
-	return result;
-}

@@ -1,9 +1,18 @@
 #include "UnityExportModel.h"
 
-UnityExportModel::UnityExportModel()
+UnityExportModel::UnityExportModel(UnityExportModel::ObjectType type)
 {
-	vs.Attach(DirectX11Manager::CreateVertexShader("Assets/Shaders/UnityExportModel.hlsl", "vsMain"));
-	ps.Attach(DirectX11Manager::CreatePixelShader("Assets/Shaders/UnityExportModel.hlsl", "psMain"));
+	switch (type)
+	{
+	case UnityExportModel::Sky:
+		vs.Attach(DirectX11Manager::CreateVertexShader("Assets/Shaders/UnityExportModel.hlsl", "vsMain"));
+		ps.Attach(DirectX11Manager::CreatePixelShader("Assets/Shaders/UnityExportModel.hlsl", "psSky"));
+		break;
+	default:
+		vs.Attach(DirectX11Manager::CreateVertexShader("Assets/Shaders/UnityExportModel.hlsl", "vsMain"));
+		ps.Attach(DirectX11Manager::CreatePixelShader("Assets/Shaders/UnityExportModel.hlsl", "psMain"));
+		break;
+	}
 
 	//InputLayout�̍쐬
 	D3D11_INPUT_ELEMENT_DESC elem[] = {

@@ -50,7 +50,6 @@ typedef ComPtr<ID3D11UnorderedAccessView> ComputeOutputView;
 
 class DirectX11Manager
 {
-	static inline HWND hWnd = NULL;
 public:
 	//DX11
 	static inline ComPtr<ID3D11Device>				m_pDevice = nullptr;
@@ -60,6 +59,8 @@ public:
 	static inline ComPtr<ID3D11RenderTargetView>	m_pRTView = nullptr;
 	static inline D3D11_VIEWPORT					m_Viewport = { 0,0,0,0,0,0 };
 	static inline ComPtr<ID3D11RasterizerState>		m_pRasterizerState = nullptr;
+
+	static inline HWND hWnd = NULL;
 
 	//Zバッファ
 	static inline ComPtr<ID3D11Texture2D>			m_pTexture2DDepth = nullptr;

@@ -20,6 +20,11 @@ void CGame::Initialize()
 	objList.emplace_back(skydome);
 	CStage* stage = new CStage(this);
 	objList.emplace_back(stage);
+	// 敵のテスト生成
+	//CSlime* slime = new CSlime(this);
+	//objList.emplace_back(slime);
+	CTurtle* turtle = new CTurtle(this);
+	objList.emplace_back(turtle);
 	// カメラの作成
 	camera = new CCamera(this);
 	camera->SetMode(CCamera::CameraMode::GAME);

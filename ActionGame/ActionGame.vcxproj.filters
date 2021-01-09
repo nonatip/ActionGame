@@ -105,6 +105,12 @@
     <ClInclude Include="skydome.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="CTurtle.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CSlime.h">
+      <Filter>Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -161,5 +167,33 @@
     <ClCompile Include="skydome.cpp">
       <Filter>Object</Filter>
     </ClCompile>
+    <ClCompile Include="CTurtle.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CSlime.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Assets\Shaders\2DPipeLine.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\3DPipeLine.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\UnityExportModel.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Assets\Shaders\UnityExportSkinnedModel.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\CorePBR.hlsli">
+      <Filter>リソース ファイル</Filter>
+    </None>
+    <None Include="Assets\Shaders\ShaderInput.hlsli">
+      <Filter>リソース ファイル</Filter>
+    </None>
   </ItemGroup>
 </Project>

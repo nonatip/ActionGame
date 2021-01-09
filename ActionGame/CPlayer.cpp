@@ -78,7 +78,17 @@ void CPlayer::Update()
 		}
 	}
 
+	// ワールド変換行列作成
 	DX11MakeWorldMatrix(m_world, m_angle, m_trans);
+	// 位置補正
+	if (m_world._41 < -STAGE_SIZE || m_world._41 > STAGE_SIZE)
+	{
+		m_world._41 = m_beforePos.x;
+	}
+	if (m_world._43 < -STAGE_SIZE || m_world._43 > STAGE_SIZE)
+	{
+		m_world._43 = m_beforePos.z;
+	}
 	UpdateInfo();
 
 	// アニメーションの更新
@@ -140,7 +150,7 @@ void CPlayer::AnimUpdate()
 
 void CPlayer::Draw()
 {
-	CGame* scene = (CGame*)m_scene;
+	//CGame* scene = (CGame*)m_scene;
 
 	// モデルの描画
 	skinnedModel->Draw();

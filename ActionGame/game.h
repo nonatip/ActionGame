@@ -5,7 +5,8 @@
 #include <list>
 #include "GameObject.h"
 #include "CPlayer.h"
-
+#include "CSlime.h"
+#include "CTurtle.h"
 #include "stage.h"
 #include "skydome.h"
 

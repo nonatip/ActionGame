@@ -287,6 +287,30 @@ HRESULT DirectX11Manager::Init(HINSTANCE hInstance, int cCmdShow)
 
 	InitInput(hInstance, hWnd);
 
+#pragma region ClipCursor
+	RECT rect;
+	GetClientRect(hWnd, &rect);
+
+	POINT ul;
+	ul.x = rect.left;
+	ul.y = rect.top;
+
+	POINT lr;
+	lr.x = rect.right;
+	lr.y = rect.bottom;
+
+	MapWindowPoints(hWnd, nullptr, &ul, 1);
+	MapWindowPoints(hWnd, nullptr, &lr, 1);
+
+	rect.left = ul.x;
+	rect.top = ul.y;
+
+	rect.right = lr.x;
+	rect.bottom = lr.y;
+
+	ClipCursor(&rect);
+#pragma endregion
+
 #pragma region ImGui
 	IMGUI_CHECKVERSION();
 	ImGui::CreateContext();

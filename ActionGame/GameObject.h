@@ -14,9 +14,10 @@ protected:
 	int			m_type = GameObject::Other;	// オブジェクトタイプ
 	CScene*		m_scene = nullptr;	// シーンへのポインタ
 
-	XMFLOAT4X4	m_world;	// ワールド変換用行列
-	XMFLOAT3	m_pos;		// 現在位置
-	XMFLOAT3	m_dir;		// 進行方向
+	XMFLOAT4X4	m_world;		// ワールド変換用行列
+	XMFLOAT3	m_pos;			// 現在位置
+	XMFLOAT3	m_beforePos;	// 直前座標
+	XMFLOAT3	m_dir;			// 進行方向
 
 	XMFLOAT3	vecX;		// x軸ベクトル
 	XMFLOAT3	vecY;		// y軸ベクトル

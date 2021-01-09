@@ -7,6 +7,11 @@ class UnityExportModel
 	VertexShader vs;
 	PixelShader ps;
 public:
+	enum ObjectType {
+		Sky,
+		Default,
+	};
+
 	struct VertexData
 	{
 		XMFLOAT3 position;
@@ -30,7 +35,7 @@ public:
 	vector<ModelData> models;
 	vector<Material> materials;
 
-	UnityExportModel();
+	UnityExportModel(UnityExportModel::ObjectType type);
 
 	void LoadAscii(string filename);
 	void LoadBinary(string filename);

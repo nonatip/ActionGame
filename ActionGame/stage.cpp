@@ -5,7 +5,7 @@ CStage::CStage(CScene * scene)
 	m_scene = scene;
 	m_type = GameObject::Other;
 	DX11MtxIdentity(m_world);
-	model = new UnityExportModel();
+	model = new UnityExportModel(UnityExportModel::ObjectType::Default);
 	model->LoadBinary("Assets/Models/Map.umb");
 }
 
