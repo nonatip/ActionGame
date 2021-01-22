@@ -21,10 +21,12 @@ void CGame::Initialize()
 	CStage* stage = new CStage(this);
 	objList.emplace_back(stage);
 	// 敵のテスト生成
-	//CSlime* slime = new CSlime(this);
-	//objList.emplace_back(slime);
+	CSlime* slime = new CSlime(this);
+	objList.emplace_back(slime);
 	CTurtle* turtle = new CTurtle(this);
 	objList.emplace_back(turtle);
+	CBoss *boss = new CBoss(this);
+	objList.emplace_back(boss);
 	// カメラの作成
 	camera = new CCamera(this);
 	camera->SetMode(CCamera::CameraMode::GAME);

@@ -6,6 +6,11 @@ CSlime::CSlime(CScene* scene)
 	m_scene = scene;
 	m_type = GameObject::Enemy;
 	DX11MtxIdentity(m_world);
+	// テスト用
+	m_world._41 = 100;
+	m_world._42 = 0;
+	m_world._43 = 100;
+	Generate();
 	skinnedModel = new UnityExportSkinnedModel();
 	skinnedModel->LoadBinary("Assets/Models/Slime.usb");
 	for (int i = 0; i < AnimMax; i++)
@@ -21,11 +26,23 @@ CSlime::~CSlime()
 
 void CSlime::Update()
 {
+	switch (action)
+	{
+	case SlimeAction::Search:
+		break;
+	case SlimeAction::Fight:
+		break;
+	default:
+		break;
+	}
+
+#pragma region AnimationTest
 	if (animCnt > animation[anim].GetMaxAnimationTime())
 	{
 		animCnt = 0;
 	}
 	animation[anim].SetTransform(animCnt);
+#pragma endregion
 
 	animCnt += 1.0f / 60.0f;
 }
@@ -39,7 +56,10 @@ void CSlime::Draw()
 	//CGame* scene = (CGame*)m_scene;
 
 	// モデルの描画
-	skinnedModel->Draw();
+	if (isDraw())
+	{
+		skinnedModel->Draw();
+	}
 
 	std::string str;
 
@@ -47,6 +67,14 @@ void CSlime::Draw()
 	ImGui::Begin(u8"Slime");
 	ImGui::Checkbox("Attack", &isAttack);
 	ImGui::InputInt("Animation", &anim);
+	if (anim < 0)
+	{
+		anim = SlimeAnimation::AnimMax - 1;
+	}
+	if (anim >= SlimeAnimation::AnimMax)
+	{
+		anim = 0;
+	}
 	if (ImGui::TreeNode("AnimData"))
 	{
 		for (int i = 0; i < SlimeAnimation::AnimMax; i++)
@@ -56,4 +84,16 @@ void CSlime::Draw()
 		ImGui::TreePop();
 	}
 	ImGui::End();
+}
+
+bool CSlime::isDraw()
+{
+	CGame* scene = (CGame*)m_scene;
+
+	return true;
+}
+
+void CSlime::Generate()
+{
+	CGame* scene = (CGame*)m_scene;
 }

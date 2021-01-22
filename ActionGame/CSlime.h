@@ -7,7 +7,7 @@ class CSlime :
 	// アニメーションの種類
 	enum SlimeAnimation {
 		Idle,
-		WalkF,
+		Walk,
 		Run,
 		Attack01,
 		Attack02,
@@ -26,15 +26,23 @@ class CSlime :
 		"Assets/Models/S_GetHitanim.usab",
 		"Assets/Models/S_Dieanim.usab",
 	};
+	// 行動のパターン
+	enum SlimeAction {
+		Search,
+		Fight,
+	};
 
 	UnityExportSkinnedModel *skinnedModel;
 	uem::SkinnedAnimation animation[AnimMax];
 
-	int		anim = CSlime::Idle;
+	int		anim = SlimeAnimation::Idle;
+	int		action = SlimeAction::Search;
 	float	animCnt = 0;
 	bool	isAttack = false;
 
 	void AnimUpdate();
+	bool isDraw();
+	void Generate();
 public:
 	CSlime(CScene* scene);
 	~CSlime();

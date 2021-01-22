@@ -7,6 +7,7 @@
 #include "CPlayer.h"
 #include "CSlime.h"
 #include "CTurtle.h"
+#include "CBoss.h"
 #include "stage.h"
 #include "skydome.h"
 

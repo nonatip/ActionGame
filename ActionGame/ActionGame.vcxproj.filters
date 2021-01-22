@@ -31,6 +31,9 @@
     <Filter Include="Input">
       <UniqueIdentifier>{31a5c8bf-f33a-4591-8230-22778125b579}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Hit">
+      <UniqueIdentifier>{1b29a413-610d-4308-ab58-d267364a145b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DirectX11Manager.h">
@@ -111,6 +114,18 @@
     <ClInclude Include="CSlime.h">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="CBoss.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="CBox.h">
+      <Filter>Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="CSphere.h">
+      <Filter>Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="HitPrimitive.h">
+      <Filter>Hit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -172,6 +187,15 @@
     </ClCompile>
     <ClCompile Include="CSlime.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CBoss.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CBox.cpp">
+      <Filter>Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="CSphere.cpp">
+      <Filter>Hit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

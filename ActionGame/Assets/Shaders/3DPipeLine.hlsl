@@ -34,3 +34,26 @@ PS_INPUT vsMain(VS_INPUT pos)
 	o.Tex = pos.Tex;
 	return o;
 }
+
+PS_INPUT vsHit(float4 Pos)
+{
+	PS_INPUT o = (PS_INPUT)0;
+	o.Pos = mul(Pos, mtxWorld);
+	o.Pos = mul(o.Pos, mtxView);
+	o.Pos = mul(o.Pos, mtxProj);
+	return o;
+}
+
+float4 psMain(PS_INPUT input) : SV_TARGET
+{
+	float4 result = 0;
+	result = Diffuse.Sample(samLinear, input.Tex) * input.Col;
+	return result;
+}
+
+float4 psHit(PS_INPUT input) : SV_TARGET
+{
+	float4 result = {1,1,1,1};
+	result.a = 0.3f;
+	return result;
+}

@@ -7,7 +7,7 @@ CPlayer::CPlayer(CScene* scene)
 	m_type = GameObject::Player;
 	DX11MtxIdentity(m_world);
 	skinnedModel = new UnityExportSkinnedModel();
-	skinnedModel->LoadBinary("Assets/Models/UnityChan.usb");
+	skinnedModel->LoadBinary("Assets/Models/Unitychan.usb");
 	for (int i = 0; i < AnimMax; i++)
 	{
 		animation[i].LoadBinary(animData[i], skinnedModel->uemData.m_root.get());
@@ -21,7 +21,7 @@ CPlayer::~CPlayer()
 
 void CPlayer::Update()
 {
-	if (!isJump && !isAttack)
+	if (!isLand && !isAttack)
 	{
 		// 向きの変更
 		m_angle.y += GetMouseAxisX() / m_sensitivity;
@@ -62,10 +62,34 @@ void CPlayer::Update()
 			isAttack = true;
 			animCnt = 0;
 		}
-		if (GetKeyboardPress(DIK_SPACE))	// ジャンプキー入力
+		if (GetKeyboardPress(DIK_SPACE))	// 回避キー入力
 		{
-			anim = CPlayer::PlayerAnimation::Jump;
-			isJump = true;
+			if (GetKeyboardPress(DIK_W))
+			{
+				m_trans.x += m_dir.x * 10.0f;
+				m_trans.y += m_dir.y * 10.0f;
+				m_trans.z += m_dir.z * 10.0f;
+			}
+			if (GetKeyboardPress(DIK_S))
+			{
+				m_trans.x += m_dir.x * -10.0f;
+				m_trans.y += m_dir.y * -10.0f;
+				m_trans.z += m_dir.z * -10.0f;
+			}
+			if (GetKeyboardPress(DIK_A))
+			{
+				m_trans.x += m_world._11 * -10.0f;
+				m_trans.y += m_world._21 * -10.0f;
+				m_trans.z += m_world._31 * -10.0f;
+			}
+			if (GetKeyboardPress(DIK_D))
+			{
+				m_trans.x += m_world._11 * 10.0f;
+				m_trans.y += m_world._21 * 10.0f;
+				m_trans.z += m_world._31 * 10.0f;
+			}
+			anim = CPlayer::PlayerAnimation::Land;
+			isLand = true;
 			animCnt = 0;
 		}
 		if (!GetKeyboardAnyKey() && !GetMouseAnyBotton())	// 何も操作されてないとき
@@ -120,12 +144,12 @@ void CPlayer::AnimUpdate()
 		}
 		animation[Run].SetTransform(animCnt);
 		break;
-	case CPlayer::PlayerAnimation::Jump:
-		if (animCnt > animation[Jump].GetMaxAnimationTime())
+	case CPlayer::PlayerAnimation::Land:
+		if (animCnt > animation[Land].GetMaxAnimationTime())
 		{
-			isJump = false;
+			isLand = false;
 		}
-		animation[Jump].SetTransform(animCnt);
+		animation[Land].SetTransform(animCnt);
 		break;
 	case CPlayer::PlayerAnimation::Punch:
 		if (animCnt > animation[Punch].GetMaxAnimationTime())
@@ -160,7 +184,7 @@ void CPlayer::Draw()
 	// imGuiの描画
 	ImGui::Begin(u8"Player");
 	ImGui::SliderFloat("sensitivity", &m_sensitivity, 10.0f, 100.0f);
-	ImGui::Checkbox("Jump", &isJump);
+	ImGui::Checkbox("Land", &isLand);
 	ImGui::Checkbox("Attack", &isAttack);
 	str = "Anim:(" + std::to_string(anim) + ")";
 	ImGui::Text(str.c_str());

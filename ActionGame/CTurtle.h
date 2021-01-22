@@ -7,7 +7,7 @@ class CTurtle :
 	// アニメーションの種類
 	enum TurtleAnimation {
 		Idle,
-		WalkF,
+		Walk,
 		Run,
 		Attack01,
 		Attack02,
@@ -26,16 +26,23 @@ class CTurtle :
 		"Assets/Models/T_GetHitanim.usab",
 		"Assets/Models/T_Dieanim.usab",
 	};
+	// 行動のパターン
+	enum TurtleAction {
+		Search,
+		Fight,
+	};
 
 	UnityExportSkinnedModel *skinnedModel;
 	uem::SkinnedAnimation animation[AnimMax];
 
-	int		anim = CTurtle::Idle;
+	int		anim = TurtleAnimation::Idle;
+	int		action = TurtleAction::Search;
 	float	animCnt = 0;
-	bool	isJump = false;
 	bool	isAttack = false;
 
 	void AnimUpdate();
+	bool isDraw();
+	void Generate();
 public:
 	CTurtle(CScene* scene);
 	~CTurtle();

@@ -10,3 +10,5 @@
 #define SCREEN_HEIGHT		800				// スクリーン高さ
 
 #define STAGE_SIZE			500				// ステージの一辺の大きさ
+
+const float PI = XM_PI;

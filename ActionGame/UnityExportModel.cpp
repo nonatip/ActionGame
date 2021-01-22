@@ -14,7 +14,7 @@ UnityExportModel::UnityExportModel(UnityExportModel::ObjectType type)
 		break;
 	}
 
-	//InputLayout�̍쐬
+	//InputLayoutの作成
 	D3D11_INPUT_ELEMENT_DESC elem[] = {
 		{ "POSITION",	0,	DXGI_FORMAT_R32G32B32_FLOAT,	0,	0,	D3D11_INPUT_PER_VERTEX_DATA,	0 },
 		{ "NORMAL"	,	0,	DXGI_FORMAT_R32G32B32_FLOAT,	0,	12,	D3D11_INPUT_PER_VERTEX_DATA,	0 },
@@ -28,7 +28,7 @@ void UnityExportModel::LoadAscii(string filename)
 {
 	uemData.LoadAscii(filename);
 
-	//VertexBuffer IndexBuffer�쐬
+	//VertexBuffer IndexBufferの作成
 	for (auto& mesh : uemData.m_meshes)
 	{
 		ModelData tmpData;
@@ -50,7 +50,7 @@ void UnityExportModel::LoadBinary(string filename)
 {
 	uemData.LoadBinary(filename);
 
-	//VertexBuffer IndexBuffer�쐬
+	//VertexBuffer IndexBufferの作成
 	for (auto& mesh : uemData.m_meshes)
 	{
 		ModelData tmpData;

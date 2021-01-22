@@ -132,9 +132,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="CBoss.h" />
+    <ClInclude Include="CBox.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CSlime.h" />
+    <ClInclude Include="CSphere.h" />
     <ClInclude Include="CTurtle.h" />
+    <ClInclude Include="HitPrimitive.h" />
     <ClInclude Include="skydome.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="DirectX11Manager.h" />
@@ -160,8 +164,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="CBoss.cpp" />
+    <ClCompile Include="CBox.cpp" />
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="CSlime.cpp" />
+    <ClCompile Include="CSphere.cpp" />
     <ClCompile Include="CTurtle.cpp" />
     <ClCompile Include="skydome.cpp" />
     <ClCompile Include="DirectX11Manager.cpp" />

@@ -116,7 +116,8 @@ public:
 		}
 		return hpBuffer;
 	}
-	static ID3D11Buffer* CreateIndexBuffer(UINT* Index, UINT IndexNum)
+	template<class x>
+	static ID3D11Buffer* CreateIndexBuffer(x* Index, UINT IndexNum)
 	{
 		//インデックスバッファ作成
 		D3D11_BUFFER_DESC hBufferDesc;
