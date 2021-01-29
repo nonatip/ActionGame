@@ -139,7 +139,6 @@
     <ClInclude Include="CSphere.h" />
     <ClInclude Include="CTurtle.h" />
     <ClInclude Include="HitPrimitive.h" />
-    <ClInclude Include="skydome.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="DirectX11Manager.h" />
     <ClInclude Include="dx11mathutil.h" />
@@ -170,7 +169,6 @@
     <ClCompile Include="CSlime.cpp" />
     <ClCompile Include="CSphere.cpp" />
     <ClCompile Include="CTurtle.cpp" />
-    <ClCompile Include="skydome.cpp" />
     <ClCompile Include="DirectX11Manager.cpp" />
     <ClCompile Include="dx11mathutil.cpp" />
     <ClCompile Include="game.cpp" />

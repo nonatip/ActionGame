@@ -9,7 +9,6 @@
 #include "CTurtle.h"
 #include "CBoss.h"
 #include "stage.h"
-#include "skydome.h"
 
 #include "camera.h"
 

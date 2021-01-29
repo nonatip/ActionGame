@@ -188,5 +188,13 @@ void CPlayer::Draw()
 	ImGui::Checkbox("Attack", &isAttack);
 	str = "Anim:(" + std::to_string(anim) + ")";
 	ImGui::Text(str.c_str());
+	str = "Pos:(" + std::to_string(m_pos.x) + ","
+		+ std::to_string(m_pos.y) + ","
+		+ std::to_string(m_pos.z) + ")";
+	ImGui::Text(str.c_str());
+	str = "Dir:(" + std::to_string(m_dir.x) + ","
+		+ std::to_string(m_dir.y) + ","
+		+ std::to_string(m_dir.z) + ")";
+	ImGui::Text(str.c_str());
 	ImGui::End();
 }

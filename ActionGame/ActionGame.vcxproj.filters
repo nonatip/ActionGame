@@ -105,9 +105,6 @@
     <ClInclude Include="stage.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="skydome.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="CTurtle.h">
       <Filter>Object</Filter>
     </ClInclude>
@@ -177,9 +174,6 @@
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="stage.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="skydome.cpp">
       <Filter>Object</Filter>
     </ClCompile>
     <ClCompile Include="CTurtle.cpp">
